@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chữ màu hồng nghệ thuật</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    body {
+      display: flex;
+      justify-content: center; /* Căn giữa theo chiều ngang */
+      align-items: center; /* Căn giữa theo chiều dọc */
+      height: 100vh; /* Chiều cao cả trang */
+      margin: 0;
+      background-image: url('noel.jpg'); /* Đường dẫn đến hình ảnh nền */
+      background-size: auto; /* Phù hợp với kích thước của khung body */
+      background-position: center; /* Hiển thị hình ảnh ở giữa trang */
+      position: relative; /* Thiết lập vị trí tương đối để chứa avatar */
+    }
+
+    .hong-nghe-thuat {
+      color: pink; /* Đổi màu chữ thành hồng */
+      font-family: 'Pacifico', cursive; /* Sử dụng font Pacifico từ Google Fonts */
+      font-size: 50px; /* Cỡ chữ lớn hơn */
+      position: relative; /* Thiết lập vị trí tương đối để chứa avatar */
+      z-index: 1; /* Đặt z-index để hiển thị phía trên avatar */
+    }
+
+    .avatar {
+      position: absolute; /* Thiết lập vị trí tuyệt đối để đặt avatar */
+      top: 50%; /* Đưa nó xuống dưới đúng giữa chiều cao của "Ng Hồng Hà" */
+      left: 450px; /* Điều chỉnh vị trí bên trái */
+      transform: translateY(-50%); /* Đưa vị trí lên trên một nửa chiều cao của chính nó */
+      width: 300x; /* Điều chỉnh chiều rộng */
+      height: 300px; /* Điều chỉnh chiều cao */
+      border-radius: 0; /* Làm tròn avatar */
+      z-index: 0; /* Đặt z-index thấp hơn để nằm phía dưới */
+    }
+      /* Hiệu ứng tuyết rơi */
+      .snowflake {
+      position: absolute;
+      background: #fff;
+      width: 5px;
+      height: 5px;
+      pointer-events: none;
+      animation: snowfall linear infinite;
+      z-index: 0;
+    }
+
+    /* Tạo keyframe cho animation */
+    @keyframes snowfall {
+      0% {
+        transform: translateY(-100vh) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <img class="avatar" src="avt.jpg" alt="Your Avatar">
+  <p class="hong-nghe-thuat">Ng Hồng Hà</p>
+   <!-- Hiệu ứng tuyết rơi -->
+   <script>
+    for (let i = 0; i < 50; i++) {
+      createSnowflake();
+    }
+
+    function createSnowflake() {
+      const snowflake = document.createElement('div');
+      snowflake.classList.add('snowflake');
+      document.body.appendChild(snowflake);
+
+      const size = Math.random() * 10;
+      snowflake.style.width = `${size}px`;
+      snowflake.style.height = `${size}px`;
+      snowflake.style.left = `${Math.random() * window.innerWidth}px`;
+      snowflake.style.animationDuration = `${Math.random() * 3 + 2}s`;
+    }
+  </script>
+</body>
+</html>
